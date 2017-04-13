@@ -14,12 +14,14 @@ import java.util.stream.Stream;
 public class OutputGenerator {
 	  
 public static void viewOrganismList(String searchFile, String outputFile, String searchParams) throws Exception{
-	 Files.lines(Paths.get(searchFile),StandardCharsets.UTF_8)
+	List<String> organismList = Files.lines(Paths.get(searchFile),StandardCharsets.UTF_8)
 			.filter(s->s.contains(searchParams))
 			.map(s->s.replace(searchParams,""))
 			.map(s->s.replace("_", ""))
 			.sorted()
-			.forEach(System.out::println);
+			.collect(Collectors.toList());
+			organismList.forEach(System.out::println);
+	 Files.write(Paths.get(outputFile), organismList, Charset.defaultCharset());
 }
 	 	  
 	  
