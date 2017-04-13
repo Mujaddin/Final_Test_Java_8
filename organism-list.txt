@@ -1,0 +1,20 @@
+Massisteria voersi_______Amoeba
+Naegleria fowleri________Amoeba
+Neutrophil________Amoeba
+Acanthamoeba_____Amoeba
+Entamoeba histolytica_____Amoeba
+Arcella vulgaris_____Amoeba
+Amoeba proteus____Amoeba
+Chaos carolinense____Amoeba
+Pelomyxa palustris____Amoeba
+Syringammina fragilissima___Amoeba
+Aardvark____Mammals
+African Elephant____Mammals
+African Wild Dog____Mammals
+African Lion____Mammals
+Arabian (Dromedary) Camel Arctic Fox____Mammals
+Arctic Hare____Mammals
+Armadillo_____Mammals
+Asian Elephant____Mammals
+Asian Lion____Mammals
+Aye-Aye____Mammals
