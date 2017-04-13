@@ -12,14 +12,15 @@ public class menuUserInterface {
 		Scanner choices = new Scanner(System.in);
 		String line;
 		String name = null;
-		
+		String searchFile ="searchParameter.txt";
+		String organismFile="organism-list.txt";
 		switch (a) {
 		case 99:
 			System.out.println("What you gonna Do Bro? Tell me Your Name");
 			name = choices.nextLine();
 			new askFormInput().setName(name);
 			askFormInput.setGo(1);
-			askFormInput.setChoice(1);
+			askFormInput.setChoice(0);
 			break;
 		case 0:
 			System.out.println("Welcome to Organism Search Application " + name);
@@ -31,6 +32,12 @@ public class menuUserInterface {
 		case 1:
 			System.out.println("What Type Do You Want To Search?");
 			String type=choices.nextLine();
+			try {
+				OutputGenerator.viewOrganismList(searchFile, "LIST_NEW.txt", type);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 		case 2:
 			System.out.println("YOU INPUT TWO VALUE");

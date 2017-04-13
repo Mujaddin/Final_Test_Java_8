@@ -13,50 +13,15 @@ import java.util.stream.Stream;
 
 public class OutputGenerator {
 	  
-	  public static String nLetterWord(String inputFile, int wordLength) throws Exception {
-		  
-			    return Files.lines(Paths.get(inputFile),StandardCharsets.UTF_8).filter(s->s.length()==(wordLength))
-	    		.findFirst()
-	    		.get();
-	  }
-	  
-	  public static String abcWord(String inputFile) throws Exception {
-		  
-	    return Files.lines(Paths.get(inputFile),StandardCharsets.UTF_8)
-	    		.filter(s->s.length()==8)
-	    		.filter(s->s.contains("a")&&s.contains("b")&&s.contains("c"))
-	    		.findFirst()
-	    		.get();
-	  }
-	  
-	  public static String abcWordMixedCase(String inputFile) throws Exception {
-		
-	    return Files.lines(Paths.get(inputFile),StandardCharsets.UTF_8)
-	    		.filter(s->s.length()==8)
-	    		.map(s->s.toLowerCase())
-	    		.filter(s->s.contains("a")&&s.contains("b")&&s.contains("c"))
-	    		.findFirst()
-	    		.get();
-	  }
-	  
-	  public static String longestWordWithout(String inputFile, String letter1, String letter2) throws Exception {
-		
-	    return Files.lines(Paths.get(inputFile),StandardCharsets.UTF_8)
-	    		.filter(s->!s.contains(letter1)&&!s.contains(letter2))
-	    		.reduce((name1,name2)->name1.length() >= name2.length() ? name1 : name2)
-	    		.get();
-	  }
-	  
-	  public static String shortestWordWith(String inputFile, String letter) throws Exception {
-		  
-		 
-	    return Files.lines(Paths.get(inputFile),StandardCharsets.UTF_8)
-	    		.filter(s->s.contains(letter))
-	    		.sorted()
-	    		.reduce((name1,name2)->name1.length() <= name2.length() ? name1 : name2)
-	    		.get();
-	  }
-	  
+public static void viewOrganismList(String searchFile, String outputFile, String searchParams) throws Exception{
+	 Files.lines(Paths.get(searchFile),StandardCharsets.UTF_8)
+			.filter(s->s.contains(searchParams))
+			.map(s->s.replace(searchParams,""))
+			.map(s->s.replace("_", ""))
+			.sorted()
+			.forEach(System.out::println);
+}
+	 	  
 	  
 	public static void storeOrganismList(String searchFile, String outputFile) throws Exception {
 		
